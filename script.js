@@ -16,7 +16,7 @@ const createMeal = (meal) => {
     // Get all ingredients from the object. Up to 20
     for (let i = 1; i <= 20; i++) {
         if (meal[`strIngredient${i}`]) {
-            ingredients.push(`${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`)
+            ingredients.push(`${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`);
         } else {
             // Stop if no more ingredients
             break;
@@ -47,9 +47,9 @@ const createMeal = (meal) => {
     if (meal.strYoutube) {
         videoGuideContainer.style.display = 'block';
         videoGuideButton.onclick = () => {
-            window.open(`videoguide.html?v=${meal.strYoutube.slice(-11)}`, '_blank');
+            window.location.href = `videoguide.html?videoId=${meal.strYoutube.slice(-11)}`;
         };
     } else {
         videoGuideContainer.style.display = 'none';
     }
-}
+};
