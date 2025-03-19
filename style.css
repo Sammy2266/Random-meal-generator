@@ -18,7 +18,19 @@ body {
 
 img {
     position: relative;
-    max-width: 100%;
+    max-width: 50%; /* Reduce the size of the meal image */
+    height: auto;
+}
+
+.meal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ingredients {
+    text-align: left;
 }
 
 p {
