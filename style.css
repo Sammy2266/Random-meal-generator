@@ -20,14 +20,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 20px;
     max-width: 800px;
 }
 
 img {
     position: relative;
-    max-width: 250px; /* Make the image smaller */
+    max-width: 350px; /* Enlarge the image */
     height: auto;
 }
 
