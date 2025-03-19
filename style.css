@@ -16,21 +16,25 @@ body {
     min-height: 100vh;
 }
 
-img {
-    position: relative;
-    max-width: 50%; /* Reduce the size of the meal image */
-    height: auto;
-}
-
-.meal-container {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
+    max-width: 800px;
+}
+
+img {
+    position: relative;
+    max-width: 250px; /* Make the image smaller */
+    height: auto;
 }
 
 .ingredients {
+    flex: 1;
     text-align: left;
+    max-width: 400px;
 }
 
 p {
