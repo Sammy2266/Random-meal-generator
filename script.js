@@ -1,5 +1,7 @@
 const get_meal_btn = document.getElementById('get_meal');
 const meal_container = document.getElementById('meal');
+const videoGuideContainer = document.getElementById('videoGuideContainer');
+const videoGuideButton = document.getElementById('videoGuideButton');
 
 get_meal_btn.addEventListener('click', () => {
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
@@ -38,16 +40,16 @@ const createMeal = (meal) => {
                 <p>${meal.strInstructions}</p>
             </div>
         </div>
-        ${meal.strYoutube ? `
-        <div class="row">
-            <h5>Video Recipe</h5>
-            <div class="videoWrapper">
-                <iframe width="420" height="315"
-                src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}">
-                </iframe>
-            </div>
-        </div>` : ''}
     `;
 
     meal_container.innerHTML = newInnerHTML;
+    
+    if (meal.strYoutube) {
+        videoGuideContainer.style.display = 'block';
+        videoGuideButton.onclick = () => {
+            window.open(`videoguide.html?v=${meal.strYoutube.slice(-11)}`, '_blank');
+        };
+    } else {
+        videoGuideContainer.style.display = 'none';
+    }
 }
