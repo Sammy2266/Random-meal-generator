@@ -7,21 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container text-center">
+    <div class="container">
         <h2>Video Guide</h2>
         <p>Watch the video guide for your meal preparation below:</p>
         <div class="videoWrapper">
-            <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            <iframe id="mealVideo" width="560" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
         <br>
-        <a href="index.html" class="button-primary">Back to Home</a>
+        <a href="index.html">Back to Home</a>
     </div>
+
     <script>
-        // Extract the video ID from the URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const videoId = urlParams.get('v');
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const videoId = getQueryParam('videoId');
+
         if (videoId) {
-            document.getElementById('videoFrame').src = `https://www.youtube.com/embed/${videoId}`;
+            document.getElementById('mealVideo').src = `https://www.youtube.com/embed/${videoId}`;
+        } else {
+            document.querySelector('.videoWrapper').innerHTML = "<p>No video available.</p>";
         }
     </script>
 </body>
