@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random meal generator</title>
+    <title>Random Meal Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,12 +14,31 @@
                 <h2>Feeling hungry?</h2>
                 <h5>Get a random meal by clicking below</h5>
                 <button class="button-primary" id="get_meal">Get Meal 🍔</button>
-                <br><br>
             </main>
         </div>
         <div id="meal" class="row-meal"></div>
+        <div class="text-center" id="videoGuideContainer" style="display: none;">
+            <button class="button-primary" id="videoGuideButton">Video Guide 🎥</button>
+        </div>
     </div>
-    <button class="button-secondary" onclick="window.open('videoguide.html', '_blank')">Video Guide ▶️</button>
+    <script src="script.js"></script>
+    <script>
+        const videoGuideButton = document.getElementById('videoGuideButton');
+        const videoGuideContainer = document.getElementById('videoGuideContainer');
+        
+        document.getElementById('get_meal').addEventListener('click', () => {
+            fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+                .then(res => res.json())
+                .then(res => {
+                    const meal = res.meals[0];
+                    if (meal.strYoutube) {
+                        videoGuideContainer.style.display = 'block';
+                        videoGuideButton.onclick = () => {
+                            window.open(`videoguide.html?v=${meal.strYoutube.slice(-11)}`, '_blank');
+                        };
+                    }
+                });
+        });
+    </script>
 </body>
-<script src="script.js"></script>
 </html>
