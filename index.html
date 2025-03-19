@@ -17,28 +17,7 @@
             </main>
         </div>
         <div id="meal" class="row-meal"></div>
-        <div class="text-center" id="videoGuideContainer" style="display: none;">
-            <button class="button-primary" id="videoGuideButton">Video Guide 🎥</button>
-        </div>
     </div>
     <script src="script.js"></script>
-    <script>
-        const videoGuideButton = document.getElementById('videoGuideButton');
-        const videoGuideContainer = document.getElementById('videoGuideContainer');
-        
-        document.getElementById('get_meal').addEventListener('click', () => {
-            fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-                .then(res => res.json())
-                .then(res => {
-                    const meal = res.meals[0];
-                    if (meal.strYoutube) {
-                        videoGuideContainer.style.display = 'block';
-                        videoGuideButton.onclick = () => {
-                            window.open(`videoguide.html?v=${meal.strYoutube.slice(-11)}`, '_blank');
-                        };
-                    }
-                });
-        });
-    </script>
 </body>
 </html>
