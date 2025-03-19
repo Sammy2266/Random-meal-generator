@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h2>Video Guide</h2>
+        <p>Watch the video guide for your meal preparation below:</p>
+        <div class="videoWrapper">
+            <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <br>
+        <a href="index.html" class="button-primary">Back to Home</a>
+    </div>
+    <script>
+        // Extract the video ID from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('v');
+        if (videoId) {
+            document.getElementById('videoFrame').src = `https://www.youtube.com/embed/${videoId}`;
+        }
+    </script>
+</body>
+</html>
