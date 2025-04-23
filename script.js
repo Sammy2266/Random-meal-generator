@@ -1,12 +1,6 @@
 const get_meal_btn = document.getElementById('get_meal');
 const meal_container = document.getElementById('meal');
-const loading_indicator = document.getElementById('loading');
-const theme_toggle = document.getElementById('theme_toggle');
-
-// Toggle Dark/Light Theme
-theme_toggle.addEventListener('click', () => {
-    document.body.dataset.theme = document.body.dataset.theme === 'light' ? '' : 'light';
-});
+const loading_indicator = document.getElementById('loader'); // Corrected ID reference
 
 get_meal_btn.addEventListener('click', () => {
     // Show loading indicator
