@@ -6,88 +6,88 @@
 }
 
 body {
-    background: var(--background-gradient);
-    color: var(--text-color);
+    background: linear-gradient(135deg, #1a1a1a, #333333);
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
     min-height: 100vh;
-    transition: background 0.5s, color 0.5s;
-}
-
-:root {
-    --background-gradient: linear-gradient(135deg, #1a1a1a, #333333);
-    --text-color: white;
-    --button-background: #ff7f50;
-    --button-hover: #ff4500;
-}
-
-[data-theme="light"] {
-    --background-gradient: linear-gradient(135deg, #ffffff, #f1f1f1);
-    --text-color: #333333;
-    --button-background: #007bff;
-    --button-hover: #0056b3;
+    margin: 0;
 }
 
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
     max-width: 800px;
+    gap: 20px;
 }
 
-h1, h2, h5 {
+h2, h5 {
+    margin: 8px 0;
     text-align: center;
-    margin-bottom: 15px;
 }
 
-#theme_toggle {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--button-background);
+.button-container {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.button-primary {
+    background: #ff7f50;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-}
-
-#theme_toggle:hover {
-    background: var(--button-hover);
-}
-
-img {
-    border-radius: 10px;
-    max-width: 100%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-button {
-    background: var(--button-background);
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 1rem;
     font-weight: bold;
     transition: background 0.3s;
 }
 
-button:hover {
-    background: var(--button-hover);
+.button-primary:hover {
+    background: #ff4500;
 }
 
 .hidden {
     display: none;
 }
 
-#loading {
+#meal {
     margin-top: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.meal img {
+    border-radius: 10px;
+    max-width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#video-container {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    width: 100%;
+    max-width: 600px; /* Ensures the video doesn't exceed the container width */
+    margin: 0 auto;
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
