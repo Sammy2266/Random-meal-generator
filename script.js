@@ -42,9 +42,12 @@ const createMeal = (meal) => {
             <p>${meal.strInstructions}</p>
             ${meal.strYoutube ? `
             <div class="videoWrapper">
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}" allowfullscreen></iframe>
-            </div>` : ''}
-        </div>
+    <iframe 
+        src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}" 
+        allowfullscreen
+        frameborder="0">
+    </iframe>
+</div>
     `;
 
     meal_container.innerHTML = newInnerHTML;
